@@ -28,6 +28,9 @@
 #include <wx/menu.h>
 #include <wx/statusbr.h>
 #include <wx/frame.h>
+#include <wx/stattext.h>
+#include <wx/gauge.h>
+#include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -67,6 +70,29 @@ class MyFrameBase : public wxFrame
 		MyFrameBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("test"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 621,438 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 		
 		~MyFrameBase();
+	
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class ProgressBase
+///////////////////////////////////////////////////////////////////////////////
+class ProgressBase : public wxDialog 
+{
+	private:
+	
+	protected:
+		wxStaticText* m_staticText9;
+		wxGauge* m_gauge1;
+		wxBoxSizer* bSizer32;
+		wxStaticText* m_staticText12;
+		wxStaticText* m_staticText13;
+		wxStaticText* m_staticText14;
+		wxStaticText* m_staticText15;
+	
+	public:
+		
+		ProgressBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Progress"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 375,169 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		~ProgressBase();
 	
 };
 

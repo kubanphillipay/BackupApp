@@ -145,3 +145,54 @@ MyFrameBase::~MyFrameBase()
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MyFrameBase::onAbout ) );
 	
 }
+
+ProgressBase::ProgressBase( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	
+	wxGridBagSizer* gbSizer4;
+	gbSizer4 = new wxGridBagSizer( 0, 0 );
+	gbSizer4->SetFlexibleDirection( wxBOTH );
+	gbSizer4->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	m_staticText9 = new wxStaticText( this, wxID_ANY, wxT("Progress"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText9->Wrap( -1 );
+	gbSizer4->Add( m_staticText9, wxGBPosition( 0, 0 ), wxGBSpan( 1, 1 ), wxALL, 5 );
+	
+	m_gauge1 = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxDefaultSize, wxGA_HORIZONTAL );
+	m_gauge1->SetValue( 0 ); 
+	gbSizer4->Add( m_gauge1, wxGBPosition( 1, 0 ), wxGBSpan( 1, 2 ), wxALL|wxEXPAND, 5 );
+	
+	bSizer32 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_staticText12 = new wxStaticText( this, wxID_ANY, wxT("File"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText12->Wrap( -1 );
+	bSizer32->Add( m_staticText12, 0, wxALL, 5 );
+	
+	m_staticText13 = new wxStaticText( this, wxID_ANY, wxT("%d"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText13->Wrap( -1 );
+	bSizer32->Add( m_staticText13, 0, wxTOP|wxBOTTOM, 5 );
+	
+	m_staticText14 = new wxStaticText( this, wxID_ANY, wxT("of"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText14->Wrap( -1 );
+	bSizer32->Add( m_staticText14, 0, wxALL, 5 );
+	
+	m_staticText15 = new wxStaticText( this, wxID_ANY, wxT("%d"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText15->Wrap( -1 );
+	bSizer32->Add( m_staticText15, 0, wxTOP|wxBOTTOM, 5 );
+	
+	
+	gbSizer4->Add( bSizer32, wxGBPosition( 2, 0 ), wxGBSpan( 1, 1 ), wxEXPAND, 5 );
+	
+	
+	gbSizer4->AddGrowableCol( 0 );
+	
+	this->SetSizer( gbSizer4 );
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+}
+
+ProgressBase::~ProgressBase()
+{
+}

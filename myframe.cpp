@@ -1,4 +1,5 @@
 #include "myframe.h"
+#include "progressbar.h"
 
 using std::cout;
 using std::endl;
@@ -22,12 +23,22 @@ void MyFrame::onInputSelect( wxFileDirPickerEvent& event )
 
 	int inFileCount = 0;
 
-	for (unsigned int i = 0; i < dirList.GetCount(); ++i){
+	ProgressBar* progressBar = new ProgressBar(NULL);
+
+	progressBar->setProgressRange(dirList.GetCount());
+	progressBar->setProgressValue(0);
+	progressBar->Show();
+	
+	for (unsigned int i = 0; i < dirList.GetCount(); ++i){		
 		*inDirTextCtrl << dirList[i] << _("\n");
 		++inFileCount;
+		progressBar->setProgressValue(inFileCount); 
+		
 	}
 
 	*debugTextCtrl << _("Input File Count: ") << inFileCount << _("\n");
+
+
 
 }
 
