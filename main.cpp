@@ -20,8 +20,8 @@ enum
 bool MyApp::OnInit()
 {
 	
-
 	MyFrame *frame = new MyFrame(_("Backup App"), wxPoint(50, 50),wxSize(850, 450));
+
 	frame->stealStdin();	
 
 	frame->Show(true);

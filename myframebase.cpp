@@ -110,6 +110,7 @@ MyFrameBase::MyFrameBase( wxWindow* parent, wxWindowID id, const wxString& title
 	runMenuItem = new wxMenuItem( runMenu, wxID_ANY, wxString( wxT("RUN!") ) , wxEmptyString, wxITEM_NORMAL );
 	runMenu->Append( runMenuItem );
 	
+
 	wxMenuItem* clearMenu;
 	clearMenu = new wxMenuItem( runMenu, wxID_ANY, wxString( wxT("Clear") ) , wxEmptyString, wxITEM_NORMAL );
 	runMenu->Append( clearMenu );

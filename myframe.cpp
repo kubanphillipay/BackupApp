@@ -1,47 +1,50 @@
-#include "myFrame.h"
-
-
-//#include "myframe.h"
-//#include "progressbar.h"
+#include "myframe.h"
+#include "progressbar.h"
 
 using std::cout;
 using std::endl;
-MyFrame::MyFrame(wxWindow* parent)
-: MyFrame()
 
+MyFrame::MyFrame( wxWindow* parent )
+:
+MyFrameBase( parent )
 {
 
 }
 
 
-void MyFrame::onInputSelect( wxFileDirPickerEvent& event )
+void MyFrame::onInputSelect(wxFileDirPickerEvent& event)
 {
 	inDirName = inDirPicker->GetDirName();
 
-	auto count = createFileList(inDirName, *inDirTextCtrl , inFiles );
+	auto count = createFileList(inDirName, *inDirTextCtrl, inFiles);
 
 	*debugTextCtrl << _("Input File Count: ") << (int)count << _("\n");
-
 }
 
-void MyFrame::onOutputSelect( wxFileDirPickerEvent& event )
+void MyFrame::onOutputSelect(wxFileDirPickerEvent& event)
 {
 	outDirName = outDirPicker->GetDirName();
 
-	auto count = createFileList(outDirName, *outDirTextCtrl, outFiles );
+	auto count = createFileList(outDirName, *outDirTextCtrl, outFiles);
 
 	*debugTextCtrl << _("Output File Count: ") << (int)count << _("\n");
-
 }
+
+
 
 void MyFrame::onUnused( wxCommandEvent& event )
 {
+
 	// TODO: Implement onUnused
 	std::cout << "On Unused" << std::endl;
+
+// TODO: Implement onUnused
+std::cout << "On Unused" << std::endl;
 }
 
 void MyFrame::onClose( wxCommandEvent& event )
 {
+
 	Close(true);
 }
 
@@ -210,6 +213,15 @@ void MyFrame::setProgressParams(unsigned int count, wxString title)
 	progressBar->setProgressValue(0);
 	progressBar->setTitle(title);
 	progressBar->Show();
+
+}
+
+
+
+void MyFrame::stealStdin()
+{
+	sbOld = std::cout.rdbuf();
+	std::cout.rdbuf(debugTextCtrl);
 }
 
 void MyFrame::restoreStdin()
@@ -218,11 +230,6 @@ void MyFrame::restoreStdin()
 		std::cout.rdbuf(sbOld);
 }
 
-void MyFrame::stealStdin()
-{
-	sbOld = std::cout.rdbuf();
-	std::cout.rdbuf(debugTextCtrl);
-}
 
 bool MyFrame::copyFiles(){
 	wxMenuItem* copy_files = runMenu->FindItem(COPY_FILE);
@@ -235,3 +242,4 @@ bool MyFrame::copyFiles(){
 	*debugTextCtrl << "Error copy files menu item not found\n";
 	return false;
 }
+

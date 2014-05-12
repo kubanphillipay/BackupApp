@@ -908,6 +908,7 @@
                         <event name="OnMenuSelection">onRun</event>
                         <event name="OnUpdateUI"></event>
                     </object>
+<<<<<<< HEAD
                     <object class="wxMenuItem" expanded="1">
                         <property name="bitmap"></property>
                         <property name="checked">0</property>
@@ -938,6 +939,8 @@
                         <event name="OnMenuSelection"></event>
                         <event name="OnUpdateUI"></event>
                     </object>
+=======
+>>>>>>> 12145c0bd5f4921847c3547daba9ff0352e56033
                 </object>
                 <object class="wxMenu" expanded="1">
                     <property name="label">&amp;Help</property>

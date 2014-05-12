@@ -23,6 +23,7 @@ public:
 	void setProgressRange(unsigned int);
 	void setProgressValue(unsigned int);
 	void setTitle(wxString& title);
+
 	
 };
 
